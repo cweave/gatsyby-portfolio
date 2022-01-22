@@ -23,7 +23,7 @@ $sand-04-color: hsl(336, 46%, 50%);
 
 /* The poster Illustration colors */
 $poster: hsl(25, 43%, 79%);
-$poster-border: min(3vmax, 50px);
+$border-size: min(3vmax, 50px);
 
 /* Sass vars */
 
@@ -45,9 +45,9 @@ $mq-vert-small: 650px;
 }
 
 .day-night-transition {
-  border: $poster-border solid;
+  border: $border-size solid;
   place-content: flex-start center;
-  color: $dark-cosmos-color;
+  color: $black;
 
   @media (min-width: $mq-small) and (max-height: $mq-small) {
     $poster-border: 30px;
@@ -56,18 +56,28 @@ $mq-vert-small: 650px;
 }
 
 .day-night-transition {
-  border-color: $poster;
+  border-color: --card-color;
   z-index: 1;
   position: relative;
 
   .accent {
-    color: $poster;
+    color: --card-color;
+    background: $black;
     padding: 0.5em 0.75em;
+    text-decoration-color: --card-color;
+    text-underline-offset: 2px;
+    text-decoration-skip-ink: all;
+    transition: all 300ms linear;
+  }
+
+  a.accent:hover {
+    color: --card-color-darker;
+    text-decoration-color: --card-color-darker;
   }
 
   .heading,
   .explanation {
-    background-color: $poster;
+    background-color: --card-color;
   }
 
   &:before,
@@ -75,42 +85,42 @@ $mq-vert-small: 650px;
     content: "";
     pointer-events: none;
     position: absolute;
-    top: calc(10px - $poster-border);
-    left: calc(10px - $poster-border);
+    top: calc(10px - $border-size);
+    left: calc(10px - $border-size);
   }
 
   &:before {
-    right: calc(0px - $poster-border);
-    bottom: calc(0px - $poster-border);
-    border-left: 3px solid $off-white;
-    border-top: 3px solid $off-white;
+    right: calc(0px - $border-size);
+    bottom: calc(0px - $border-size);
+    border-left: 3px solid $white;
+    border-top: 3px solid $white;
     z-index: 2;
 
     @media (min-width: $mq-small) and (max-height: $mq-small) {
-      top: calc(30px - $poster-border);
+      top: calc(30px - $border-size);
     }
   }
 
   &:after {
     z-index: 1;
-    right: calc(0px - $poster-border - 12px);
-    bottom: calc(0px - $poster-border - 12px);
+    right: calc(0px - $border-size - 12px);
+    bottom: calc(0px - $border-size - 12px);
     border-right: 3px solid $poster;
     border-bottom: 3px solid $poster;
     border-top: 3px solid $poster;
     border-left: 3px solid $poster;
 
     @media (min-width: $mq-small) and (max-height: $mq-small) {
-      top: calc(30px - $poster-border);
+      top: calc(30px - $border-size);
     }
   }
 
   @media (prefers-color-scheme: dark) {
     border-color: $t-moon-pattern-color;
-    color: $off-white;
+    color: $dark-slate;
 
     &:before {
-      border-color: $dark-cosmos-color;
+      border-color: $black;
     }
 
     &:after {
@@ -124,7 +134,12 @@ $mq-vert-small: 650px;
 
     .accent {
       color: $t-moon-pattern-color;
-      background: $dark-cosmos-color;
+      text-decoration-color: $t-moon-pattern-color;
+    }
+
+    a.accent:hover {
+      color: darken($t-moon-pattern-color, 15%);
+      text-decoration-color: darken($t-moon-pattern-color, 15%);
     }
   }
 }
@@ -146,7 +161,7 @@ $mq-vert-small: 650px;
   padding: 3vh 0;
   font-size: 1em;
   line-height: 1.3;
-  border-bottom: 3px solid $dark-cosmos-color;
+  border-bottom: 3px solid $black;
   position: relative;
   background: none;
 

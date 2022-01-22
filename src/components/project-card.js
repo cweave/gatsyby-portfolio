@@ -42,7 +42,7 @@ const ProjectCards = () => {
 
   const renderCards = () =>
     filteredProjects.map(proj => (
-      <div className="day-night-transition">
+      <div className="day-night-transition" key={proj.name}>
         <div className="heading">
           <h1>{proj.name}</h1>
         </div>

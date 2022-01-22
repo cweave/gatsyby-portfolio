@@ -5,6 +5,40 @@ $bp-medium: 43.75;
 $bp-large: 60.25;
 $bp-xlarge: 75;
 
+:root {
+  color-scheme: dark light;
+}
+
+:root[color-mode="light"] {
+  --primary-text: #{$black};
+  --background-color: #{$white};
+  --card-color: hsl(25, 43%, 79%);
+  --card-color-darker: hsl(25, 43%, 59%);
+  --card-border-color: #{$white};
+  --element2: #222222;
+  --element3: #333333;
+  --elementInverse: #eee;
+  --primary: #01408e;
+  --secondary: #3c5d5c;
+  --tertiary: #fff7d6;
+  --box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+}
+
+:root[color-mode="dark"] {
+  --primary-text: #{$white};
+  --background-color: #{$black};
+  --card-color: hsl(225, 31%, 74%);
+  --card-color-darker: hsl(225, 31%, 54%);
+  --card-border-color: hsl(225, 31%, 74%);
+  --element2: #dddddd;
+  --element3: #cccccc;
+  --elementInverse: #111;
+  --primary: #8fceff;
+  --secondary: #72faca;
+  --tertiary: #eee8a9;
+  --box-shadow: 20px 20px 60px #1d1d1d, -20px -20px 60px #272727;
+}
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -29,34 +63,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $black;
-  background: $white;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: $black;
-    color: $off-white;
-  }
-}
-
-body {
-  &::-webkit-scrollbar {
-    background-color: $off-white;
-    width: 0.85em;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: $off-white;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $slate;
-    border-radius: 2em;
-    border: 2px solid $slate;
-  }
-
-  &::-webkit-scrollbar-button {
-    display: none;
-  }
+  color: --primary-text;
+  background: --background-color;
 }
 
 body,
@@ -149,7 +157,7 @@ strong {
 .linebreak {
   height: 2px;
   overflow: visible;
-  color: $white;
+  color: --primary-text;
   position: relative;
   margin: 1.25em auto;
   display: block;
@@ -169,7 +177,7 @@ strong {
     &::after {
       content: attr(data-content);
       position: relative;
-      background: $white;
+      background: --background-color;
       padding: 0 1.5rem;
       top: -0.475em;
       font-size: 3em;

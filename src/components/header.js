@@ -1,5 +1,4 @@
-import * as React from "react"
-import PropTypes from "prop-types"
+import React from "react"
 import { Link } from "gatsby"
 
 const Header = ({ siteTitle }) => (
@@ -27,16 +26,20 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+		<button className="color-mode__btn light--hidden" aria-label="Toggle light mode">Toggle Light Mode
+			<svg aria-hidden="true">
+				<use href="#sun"></use>
+			</svg>
+		</button>
+
+		<button className="color-mode__btn dark--hidden" aria-label="Toggle dark mode">Toggle Dark Mode
+			<svg aria-hidden="true">
+				<use href="#moon"></use>
+			</svg>
+		</button>
     </div>
   </header>
 )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
