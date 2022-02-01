@@ -56,28 +56,28 @@ $mq-vert-small: 650px;
 }
 
 .day-night-transition {
-  border-color: --card-color;
+  border-color: #{var(--card-color)};
   z-index: 1;
   position: relative;
 
   .accent {
-    color: --card-color;
+    color: #{var(--card-color)};
     background: $black;
     padding: 0.5em 0.75em;
-    text-decoration-color: --card-color;
+    text-decoration-color: var(--card-color);
     text-underline-offset: 2px;
     text-decoration-skip-ink: all;
     transition: all 300ms linear;
   }
 
   a.accent:hover {
-    color: --card-color-darker;
-    text-decoration-color: --card-color-darker;
+    color: var(--card-color-darker);
+    text-decoration-color: var(--card-color-darker);
   }
 
   .heading,
   .explanation {
-    background-color: --card-color;
+    background-color: var(--card-color);
   }
 
   &:before,
@@ -92,8 +92,8 @@ $mq-vert-small: 650px;
   &:before {
     right: calc(0px - $border-size);
     bottom: calc(0px - $border-size);
-    border-left: 3px solid $white;
-    border-top: 3px solid $white;
+    border-left: 3px solid var(--background-color);
+    border-top: 3px solid var(--background-color);
     z-index: 2;
 
     @media (min-width: $mq-small) and (max-height: $mq-small) {
@@ -105,41 +105,13 @@ $mq-vert-small: 650px;
     z-index: 1;
     right: calc(0px - $border-size - 12px);
     bottom: calc(0px - $border-size - 12px);
-    border-right: 3px solid $poster;
-    border-bottom: 3px solid $poster;
-    border-top: 3px solid $poster;
-    border-left: 3px solid $poster;
+    border-right: 3px solid #{var(--card-color)};
+    border-bottom: 3px solid #{var(--card-color)};
+    border-top: 3px solid #{var(--card-color)};
+    border-left: 3px solid #{var(--card-color)};
 
     @media (min-width: $mq-small) and (max-height: $mq-small) {
       top: calc(30px - $border-size);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    border-color: $t-moon-pattern-color;
-    color: $dark-slate;
-
-    &:before {
-      border-color: $black;
-    }
-
-    &:after {
-      border-color: $t-moon-pattern-color;
-    }
-
-    .heading,
-    .explanation {
-      background-color: $t-moon-pattern-color;
-    }
-
-    .accent {
-      color: $t-moon-pattern-color;
-      text-decoration-color: $t-moon-pattern-color;
-    }
-
-    a.accent:hover {
-      color: darken($t-moon-pattern-color, 15%);
-      text-decoration-color: darken($t-moon-pattern-color, 15%);
     }
   }
 }
