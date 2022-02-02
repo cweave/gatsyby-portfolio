@@ -20,12 +20,13 @@ const IndexPage = () => {
       <p>I'm a front-end engineer and user experience advocate.</p>
       <p>Currently working as a software engineer in the SaaS industry.</p>
 
-      <hr className="linebreak" />
+      <hr className="liner" />
 
       <Technologies />
 
-      <hr className="linebreak" />
+      <hr />
 
+      <h2>Side Projects</h2>
       <ProjectCards />
     </Layout>
   )

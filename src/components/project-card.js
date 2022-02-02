@@ -45,20 +45,23 @@ const ProjectCards = () => {
       <div className="day-night-transition" key={proj.name}>
         <div className="heading">
           <h1>{proj.name}</h1>
+          <span>Last updated: {proj.lastUpdated}</span>
         </div>
         <div className="explanation">
           <p>{proj.description ? proj.description : <i>This project doesn't have a description.</i>}</p>
-          <ul className="project__technologies">
+        </div>
+        <ul className="project__technologies">
+          {proj.language ? (
             <li>
               <span className="accent">{proj.language}</span>
             </li>
-            <li>
-              <a href={proj.html_url} className="accent" target="_blank" title={`View ${proj.name} repository on Github`}>
-                View Repo
-              </a>
-            </li>
-          </ul>
-        </div>
+          ) : null}
+          <li>
+            <a href={proj.html_url} className="accent" target="_blank" title={`View ${proj.name} repository on Github`}>
+              View Repo
+            </a>
+          </li>
+        </ul>
       </div>
     ))
 

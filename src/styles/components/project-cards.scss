@@ -48,6 +48,11 @@ $mq-vert-small: 650px;
   border: $border-size solid;
   place-content: flex-start center;
   color: $black;
+  height: 400px;
+  background-color: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (min-width: $mq-small) and (max-height: $mq-small) {
     $poster-border: 30px;
@@ -56,12 +61,12 @@ $mq-vert-small: 650px;
 }
 
 .day-night-transition {
-  border-color: #{var(--card-color)};
+  border-color: var(--card-color);
   z-index: 1;
   position: relative;
 
   .accent {
-    color: #{var(--card-color)};
+    color: var(--card-color);
     background: $black;
     padding: 0.5em 0.75em;
     text-decoration-color: var(--card-color);
@@ -105,10 +110,10 @@ $mq-vert-small: 650px;
     z-index: 1;
     right: calc(0px - $border-size - 12px);
     bottom: calc(0px - $border-size - 12px);
-    border-right: 3px solid #{var(--card-color)};
-    border-bottom: 3px solid #{var(--card-color)};
-    border-top: 3px solid #{var(--card-color)};
-    border-left: 3px solid #{var(--card-color)};
+    border-right: 3px solid var(--card-color);
+    border-bottom: 3px solid var(--card-color);
+    border-top: 3px solid var(--card-color);
+    border-left: 3px solid var(--card-color);
 
     @media (min-width: $mq-small) and (max-height: $mq-small) {
       top: calc(30px - $border-size);
@@ -116,33 +121,56 @@ $mq-vert-small: 650px;
   }
 }
 
-.heading h1 {
-  margin: 0;
-  font-size: clamp(1.8em, 3vw, 3.2em);
-  letter-spacing: -0.03em;
-  margin-top: -0.3em;
+.heading {
+  h1 {
+    margin: 0;
+    font-size: clamp(1.8em, 3vw, 2.5em);
+    letter-spacing: -0.03em;
+    margin-top: -0.3em;
 
-  @media (min-width: $mq-small) and (max-height: $mq-small) {
-    font-size: clamp(1.5em, 8vw, 2em);
+    @media (min-width: $mq-small) and (max-height: $mq-small) {
+      font-size: clamp(1.5em, 8vw, 2em);
+    }
+  }
+
+  span {
+    font-style: italic;
+    margin-top: 0.15rem;
+    font-size: 0.9rem;
   }
 }
 
 /* Explanation */
 
 .explanation {
-  padding: 3vh 0;
-  font-size: 1em;
+  padding: 1em 0;
   line-height: 1.3;
-  border-bottom: 3px solid $black;
   position: relative;
   background: none;
 
-  .project__technologies {
-    list-style: none;
-    display: flex;
-    place-content: space-between space-evenly;
+  p {
     margin: 0;
-    padding: 0;
-    margin-top: 15%;
+    font-size: clamp(0.9rem, 0.7153rem + 1.6368vw, 1rem);
+  }
+}
+
+.project__technologies {
+  list-style: none;
+  display: flex;
+  place-content: space-between space-evenly;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1em;
+  border-bottom: 3px solid $black;
+}
+
+.sub-header {
+  &-title {
+    font-size: clamp(1.15em, 3vw, 2em);
+    color: var(--primary-text);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px var(--card-color);
   }
 }
