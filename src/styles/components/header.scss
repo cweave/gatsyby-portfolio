@@ -4,7 +4,7 @@ header {
   background: #{var(--background-color)};
   max-width: $layout-width;
   margin: 0 auto;
-  padding: 2em 0;
+  padding: 1em 0.75em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,7 +68,8 @@ header {
     }
   }
 
-  &:hover .sun__ray {
+  &:hover .sun__ray,
+  &:focus .sun__ray {
     $columns: 8;
 
     @for $i from 1 through $columns {

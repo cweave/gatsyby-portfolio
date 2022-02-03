@@ -22,7 +22,8 @@ const IndexPage = () => {
       <p>I'm a front-end engineer and user experience advocate.</p>
       <p>Currently working as a software engineer in the SaaS industry.</p>
 
-      <hr className="liner" />
+      <hr />
+	  <h2>Technologies</h2>
 
       <Technologies />
 
