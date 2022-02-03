@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-gatsby-cloud`,
+	`gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

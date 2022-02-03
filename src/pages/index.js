@@ -10,7 +10,9 @@ const IndexPage = () => {
 	  const windowGlobal = typeof window !== 'undefined' && window.localStorage
     if (windowGlobal && (localStorage.getItem("color-mode") === "dark" || (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode")))) {
       document.documentElement.setAttribute("color-mode", "dark")
-    }
+    } else {
+		document.documentElement.setAttribute("color-mode", "light")
+	}
     console.log(document.documentElement)
   })
   return (
