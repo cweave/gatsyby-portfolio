@@ -1,10 +1,20 @@
-import React, { useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 
-const ColorModeToggle = () => {
-	const windowGlobal = typeof window !== 'undefined' && window.localStorage
-  const [isDark, setIsDark] = useState(windowGlobal && (localStorage.getItem("color-mode") === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches))
+const ColorModeToggle = ({ defaultColor}) => {
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    console.log('defaultColor', defaultColor)
+    updateDefault()
+  }, [defaultColor])
+
+  const updateDefault = useCallback(() => {
+    return (defaultColor === 'dark') ? setIsDark(true) : setIsDark(false);
+  }, [defaultColor]);
+
   const toggleMode = e => {
     setIsDark(!isDark)
+
     if (e.target.parentElement.classList.contains("theme--night")) {
       document.documentElement.setAttribute("color-mode", "light")
     } else {

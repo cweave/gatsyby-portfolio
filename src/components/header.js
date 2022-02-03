@@ -5,7 +5,7 @@ import "../styles/components/header.scss"
 import { Link } from "gatsby"
 import Burch from "../assets/burch.svg"
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, defaultColor }) => {
   return (
     <header>
       <Link to="/">
@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => {
         {/* <StaticImage src="../images/burch-b.webp" width={50} formats={["auto", "webp", "avif"]} alt={siteTitle} /> */}
       </Link>
 
-      <ColorModeToggle />
+      <ColorModeToggle defaultColor={defaultColor} />
     </header>
   )
 }
