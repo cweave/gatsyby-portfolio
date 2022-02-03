@@ -7,8 +7,8 @@ import Seo from "../components/seo"
 
 const IndexPage = () => {
   useEffect(() => {
-    console.log(localStorage.getItem("color-mode") === "dark" || (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode")))
-    if (localStorage.getItem("color-mode") === "dark" || (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode"))) {
+	  const windowGlobal = typeof window !== 'undefined' && window.localStorage
+    if (windowGlobal && (localStorage.getItem("color-mode") === "dark" || (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode")))) {
       document.documentElement.setAttribute("color-mode", "dark")
     }
     console.log(document.documentElement)

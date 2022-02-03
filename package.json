@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Software engineer focused on frontend web development and user experience. Web portfolio.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Christa Burch <cweav3r@gmail.com>",
   "dependencies": {
     "gatsby": "^4.5.2",
     "gatsby-plugin-gatsby-cloud": "^4.6.0",

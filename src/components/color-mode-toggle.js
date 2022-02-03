@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 
 const ColorModeToggle = () => {
-  const [isDark, setIsDark] = useState(localStorage.getItem("color-mode") === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches)
+	const windowGlobal = typeof window !== 'undefined' && window.localStorage
+  const [isDark, setIsDark] = useState(windowGlobal && (localStorage.getItem("color-mode") === "dark" || window.matchMedia("(prefers-color-scheme: dark)").matches))
   const toggleMode = e => {
     setIsDark(!isDark)
-    console.log("toggle", e.target.parentElement.classList.contains("theme--night"))
     if (e.target.parentElement.classList.contains("theme--night")) {
       document.documentElement.setAttribute("color-mode", "light")
     } else {

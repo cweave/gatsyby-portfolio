@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Christa Burch`,
     description: `Software engineer focused on frontend web development and user experience. Web portfolio.`,
-    author: `@gatsbyjs`,
+    author: `@cweave`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
