@@ -3,10 +3,13 @@ import "../styles/components/technologies.scss"
 
 const Technologies = () => {
   return (
-    <div className="technologies-container">
-      <h2>
-        Technologies I've <strong>worked</strong> with & technologies I've <em>dabbled</em> with.
-      </h2>
+    <section className="technologies-container">
+      <hr />
+      <h2>Technologies</h2>
+
+      <h3>
+        Technologies I've <strong>worked</strong> & <em className="dabbled">dabbled</em> with.
+      </h3>
 
       <ul className="technologies-list">
         <li>HTML</li>
@@ -27,7 +30,7 @@ const Technologies = () => {
         <li className="dabbled">Webpack</li>
         <li className="dabbled">Parcel</li>
       </ul>
-    </div>
+    </section>
   )
 }
 

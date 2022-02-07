@@ -42,10 +42,10 @@ const ProjectCards = () => {
 
   const renderCards = () =>
     filteredProjects.map(proj => (
-      <div className="day-night-transition" key={proj.name}>
-        <div className="heading">
-          <h1>{proj.name}</h1>
-          <span>Last updated: {proj.lastUpdated}</span>
+      <div className="project-cards" key={proj.name}>
+        <div className="project-cards__heading">
+          <span className="project-cards__heading-title">{proj.name}</span>
+          <span className="project-cards__heading-updated">Last updated: {proj.lastUpdated}</span>
         </div>
         <div className="explanation">
           <p>{proj.description ? proj.description : <i>This project doesn't have a description.</i>}</p>
@@ -57,7 +57,7 @@ const ProjectCards = () => {
             </li>
           ) : null}
           <li>
-            <a href={proj.html_url} className="accent" target="_blank" title={`View ${proj.name} repository on Github`}>
+            <a href={proj.html_url} rel="noreferrer noopener" className="accent" target="_blank" title={`View ${proj.name} repository on Github`}>
               View Repo
             </a>
           </li>
@@ -65,7 +65,23 @@ const ProjectCards = () => {
       </div>
     ))
 
-  return <div className="project-cards">{renderCards()}</div>
+  return (
+    <section>
+      <hr />
+      <h2>Side Projects</h2>
+      {filteredProjects.length > 0 ? (
+        <div className="project-cards-container">{renderCards()}</div>
+      ) : (
+        <p style={{ padding: `1em` }}>
+          Nothing to show here 🙈. Check out existing repositories on{" "}
+          <a href="https://github.com/cweave" rel="noreferrer noopener" target="_blank" title="view existing repositories on GIthub">
+            Github
+          </a>
+          .
+        </p>
+      )}
+    </section>
+  )
 }
 
 export default ProjectCards

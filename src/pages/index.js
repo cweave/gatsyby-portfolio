@@ -6,33 +6,28 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
-  const [colorMode, setColorMode] = useState('')
+  const [colorMode, setColorMode] = useState("")
   useEffect(() => {
-	  const windowGlobal = typeof window !== 'undefined' && window.localStorage
+    const windowGlobal = typeof window !== "undefined" && window.localStorage
     if (windowGlobal && (localStorage.getItem("color-mode") === "dark" || (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode")))) {
       document.documentElement.setAttribute("color-mode", "dark")
-      setColorMode('dark')
+      setColorMode("dark")
     } else {
       document.documentElement.setAttribute("color-mode", "light")
-      setColorMode('light')
+      setColorMode("light")
     }
   })
 
   return (
     <Layout defaultColor={colorMode}>
       <Seo title="Home" />
-      <h1>Hi, I'm Christa</h1>
-      <p>I'm a front-end engineer and user experience advocate.</p>
-      <p>Currently working as a software engineer in the SaaS industry.</p>
-
-      <hr />
-	  <h2>Technologies</h2>
+      <section>
+        <h1>Hi, I'm Christa</h1>
+        <p>I'm a front-end engineer and user experience advocate. Currently working as a software engineer in the SaaS industry.</p>
+        <p>I have extensive experience with sematic HTML, SCSS, React, and vanilla JavaScript (ES6+). By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of psychological thrillers, and a (novice) hobbyist lockpicker 🔓.</p>
+      </section>
 
       <Technologies />
-
-      <hr />
-
-      <h2>Side Projects</h2>
       <ProjectCards />
     </Layout>
   )

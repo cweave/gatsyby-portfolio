@@ -1,8 +1,5 @@
-@import "../variables";
-
 header {
-  background: #{var(--background-color)};
-  max-width: $layout-width;
+  max-width: var(--layout-width);
   margin: 0 auto;
   padding: 1em 0.75em;
   display: flex;

@@ -1,50 +1,48 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,900;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,700&display=swap");
-/* Breakpoint variables */
-$bp-small: 24.15;
-$bp-medium: 43.75;
-$bp-large: 60.25;
-$bp-xlarge: 75;
 
 :root {
   color-scheme: dark light;
+  --serif: "Merriweather", serif;
+  --sans-serif: "Nunito", sans-serif;
+
+  --bg-transition: background-color 1s;
+  --black: hsl(290, 34%, 10%);
+  --white: hsl(0, 0%, 86%);
+  --primary-light-mode: hsl(25, 43%, 79%);
+  --primary-light-mode--darker: hsl(25, 43%, 59%);
+  --primary-dark-mode: hsl(225, 31%, 74%);
+  --primary-dark-mode--darker: hsl(225, 31%, 54%);
+  --teal: hsl(169, 99%, 37%);
+  --teal--darker: hsl(169, 99%, 22%);
+  --purple: hsl(237, 45%, 40%);
+  --purple--darker: hsl(237, 45%, 25%);
+  --layout-width: 1024px;
 }
 
 :root[color-mode="light"] {
-  --primary-text: #{$black};
-  --background-color: #{$white};
-  --card-color: hsl(25, 43%, 79%);
-  --card-color-darker: hsl(25, 43%, 59%);
-  --card-border-color: #{$white};
-  --element2: #222222;
-  --element3: #333333;
-  --elementInverse: #eee;
-  --primary: #01408e;
-  --secondary: #3c5d5c;
-  --tertiary: #fff7d6;
+  --primary-text: var(--black);
+  --background-color: var(--white);
+  --card-color: var(--primary-light-mode);
+  --card-color-darker: var(--primary-light-mode--darker);
+  --card-border-color: var(--white);
   --box-shadow: rgba(29, 29, 29, 0.3);
-
-  --toggle-primary: #f1f1f1;
-  --toggle-primary-light: #152640;
-  --toggle-secondary: #eec413;
+  --link-color: var(--purple);
+  --link-color--darker: var(--purple--darker);
+  --toggle-primary: var(--background-color);
+  --toggle-secondary: hsl(48, 87%, 50%);
 }
 
 :root[color-mode="dark"] {
-  --primary-text: #{$white};
-  --background-color: #{$black};
-  --card-color: hsl(225, 31%, 74%);
-  --card-color-darker: hsl(225, 31%, 54%);
-  --card-border-color: hsl(225, 31%, 74%);
-  --element2: #dddddd;
-  --element3: #cccccc;
-  --elementInverse: #111;
-  --primary: #8fceff;
-  --secondary: #72faca;
-  --tertiary: #eee8a9;
+  --primary-text: var(--white);
+  --background-color: var(--black);
+  --card-color: var(--primary-dark-mode);
+  --card-color-darker: var(--primary-dark-mode--darker);
+  --card-border-color: var(--primary-dark-mode);
   --box-shadow: rgba(241, 241, 241, 0.2);
-
-  --toggle-primary: #{$black};
-  --toggle-primary-light: #152640;
-  --toggle-secondary: hsl(225, 31%, 74%);
+  --link-color: var(--teal);
+  --link-color--darker: var(--teal--darker);
+  --toggle-primary: var(--background-color);
+  --toggle-secondary: var(--primary-dark-mode);
 }
 
 html {
@@ -66,13 +64,18 @@ html,
 body {
   min-height: 100%;
   margin: 0;
-  @include fluid-type($min_width, $max_width, 14px, 16px);
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #{var(--primary-text)};
+  color: var(--primary-text);
   background: var(--background-color);
+}
+
+body {
+  transition: var(--bg-transition);
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
 }
 
 body,
@@ -94,7 +97,7 @@ cite,
 b,
 strong,
 button {
-  font-family: "Nunito", sans-serif;
+  font-family: var(--sans-serif);
   font-weight: normal;
   font-style: normal;
 }
@@ -106,9 +109,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Merriweather", serif;
+  font-family: var(--serif);
   font-weight: normal;
-  // transition: all linear 0.2s;
   margin: 1rem auto 0.5rem auto;
   letter-spacing: -0.025rem;
 }
@@ -126,51 +128,29 @@ h2 {
 }
 
 h3 {
-  @include fluid-type($min_width, $max_width, 1.5rem, 2rem);
+  margin: 1em 0;
+  font-size: clamp(1.15em, 3vw, 1.75em);
   line-height: 1.15;
+
+  em.dabbled {
+    font-family: var(--sans-serif);
+    font-weight: 400;
+    color: rgba(var(--primary-text), 0.15);
+  }
 }
 
 p {
   font-size: clamp(1.1rem, 0.7153rem + 1.6368vw, 1.5rem);
-  line-height: 1.15;
+  line-height: 25px;
 }
 
 strong {
   font-weight: 800;
 }
 
-.linebreak {
-  height: 2px;
-  overflow: visible;
-  color: var(--primary-text);
-  position: relative;
-  margin: 1.25em auto;
-  display: block;
-
-  &::before {
-    content: "";
-    background: linear-gradient(to right, transparent, currentColor, transparent);
-    height: 2px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-  }
-
-  &[data-content] {
-    text-align: center;
-
-    &::after {
-      content: attr(data-content);
-      position: relative;
-      background: var(--background-color);
-      padding: 0 1.5rem;
-      top: -0.475em;
-      font-size: 3em;
-      line-height: 1;
-      font-family: serif;
-      font-style: italic;
-      color: currentColor;
-    }
+main section.technologies-container {
+  > :not(h2) {
+    padding: 0 1em;
   }
 }
 
@@ -180,7 +160,8 @@ hr {
   width: 100%;
   height: 1px;
   border: 0;
-  background-color: var(--card-color);
+  background-color: var(--card-color-darker);
+  box-shadow: 0px 0px 10px 1px var(--card-color);
 
   + h2 {
     display: inline-block;
@@ -188,8 +169,8 @@ hr {
     left: 20%;
     margin: 0;
     padding: 0.5em 1em;
-    border: 1px solid var(--primary-text);
-    box-shadow: inset 0 0 0 1px var(--card-color-darker);
+    border: 1px solid var(--card-color-darker);
+    box-shadow: inset 0 0 0 1px var(--card-color);
     transform: translateX(-40%);
     color: var(--primary-text);
     font-size: clamp(1.15em, 3vw, 1.25em);
@@ -198,5 +179,20 @@ hr {
     text-align: center;
     text-transform: uppercase;
     background-color: var(--background-color);
+  }
+}
+
+a {
+  color: var(--link-color);
+  transition: all 0.2s ease-in;
+  border: 1px dashed var(--background-color);
+
+  &:hover,
+  &:focus,
+  &:active {
+    padding: 0.1rem;
+    color: var(--link-color--darker);
+    text-decoration: none;
+    border-color: var(--link-color--darker);
   }
 }
