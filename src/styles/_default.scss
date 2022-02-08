@@ -76,6 +76,7 @@ body {
   transition: var(--bg-transition);
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+  box-sizing: border-box;
 }
 
 body,
@@ -184,8 +185,9 @@ hr {
 
 a {
   color: var(--link-color);
-  transition: all 0.2s ease-in;
-  border: 1px dashed var(--background-color);
+  transition: all 0.2s ease-in-out;
+  padding: 0.1rem;
+  box-sizing: border-box;
 
   &:hover,
   &:focus,
@@ -193,6 +195,6 @@ a {
     padding: 0.1rem;
     color: var(--link-color--darker);
     text-decoration: none;
-    border-color: var(--link-color--darker);
+    outline: 1px dashed var(--link-color--darker);
   }
 }

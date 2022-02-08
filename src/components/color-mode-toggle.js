@@ -39,6 +39,7 @@ const ColorModeToggle = ({ defaultColor }) => {
       }
     }
   }
+
   return (
     <button className={`color-mode-toggle  ${isDark ? "theme--night" : null}`} onClick={e => toggleMode(e)} onKeyDown={e => handleKey(e)} aria-label="dark mode toggle" aria-pressed={isDark}>
       <span className="moon"></span>

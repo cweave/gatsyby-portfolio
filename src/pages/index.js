@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import ProjectCards from "../components/project-card"
 import Technologies from "../components/technologies"
 
@@ -7,7 +7,8 @@ import Seo from "../components/seo"
 
 const IndexPage = () => {
   const [colorMode, setColorMode] = useState("")
-  useEffect(() => {
+
+  const toggleColorMode = useCallback(() => {
     const windowGlobal = typeof window !== "undefined" && window.localStorage
     if (windowGlobal && (localStorage.getItem("color-mode") === "dark" || (window.matchMedia("(prefers-color-scheme: dark)").matches && !localStorage.getItem("color-mode")))) {
       document.documentElement.setAttribute("color-mode", "dark")
@@ -16,7 +17,11 @@ const IndexPage = () => {
       document.documentElement.setAttribute("color-mode", "light")
       setColorMode("light")
     }
-  })
+  }, [])
+
+  useEffect(() => {
+    toggleColorMode()
+  }, [toggleColorMode])
 
   return (
     <Layout defaultColor={colorMode}>
