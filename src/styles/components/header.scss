@@ -9,7 +9,9 @@ header {
   svg {
     transition: all 0.1s ease-in-out;
     fill: var(--card-color-darker);
+    height: 85px;
     max-height: 85px;
+    max-width: 85px;
 
     &:hover,
     &:active,

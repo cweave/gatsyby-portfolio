@@ -25,7 +25,7 @@ const IndexPage = () => {
 
   return (
     <Layout defaultColor={colorMode}>
-      <Seo title="Home" />
+      <Seo title="Software Engineer" />
       <section>
         <h1>Hi, I'm Christa</h1>
         <p>I'm a front-end engineer and user experience advocate. Currently working as a software engineer in the SaaS industry.</p>
