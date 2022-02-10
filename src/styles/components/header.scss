@@ -12,12 +12,6 @@ header {
     height: 85px;
     max-height: 85px;
     max-width: 85px;
-
-    &:hover,
-    &:active,
-    &:focus {
-      fill: var(--card-color);
-    }
   }
 
   h1 {
@@ -29,11 +23,12 @@ header {
   background: none;
   border: 0;
   height: 37px;
-  width: 37px;
+  min-width: 37px;
   cursor: pointer;
   transform: translate(50%, -50%);
-  margin-top: 2em;
-  margin-right: 2em;
+  position: relative;
+  top: 2em;
+  right: 3em;
 
   .sun {
     background: var(--toggle-secondary);
@@ -76,7 +71,7 @@ header {
 
 .moon {
   height: 28px;
-  width: 28px;
+  width: 32px;
   position: absolute;
   background: var(--toggle-primary);
   border-radius: 50%;
@@ -91,12 +86,12 @@ header {
 .theme--night {
   &.color-mode-toggle:hover {
     .moon {
-      transform: scale(1) translate(-3%, -18%);
+      transform: scale(1) translate(-13%, -18%);
     }
   }
 
   .moon {
-    transform: scale(1) translate(11%, -11%);
+    transform: scale(1) translate(1%, -12%);
   }
 
   &.color-mode-toggle .sun__ray {

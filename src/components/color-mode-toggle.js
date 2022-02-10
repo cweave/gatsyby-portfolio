@@ -8,7 +8,6 @@ const ColorModeToggle = ({ defaultColor }) => {
   }, [defaultColor])
 
   useEffect(() => {
-    console.log("defaultColor", defaultColor)
     updateDefault()
   }, [defaultColor, updateDefault])
 

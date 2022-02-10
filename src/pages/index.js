@@ -27,9 +27,9 @@ const IndexPage = () => {
     <Layout defaultColor={colorMode}>
       <Seo title="Software Engineer" />
       <section>
-        <h1>Hi, I'm Christa</h1>
+        <h1>Hi, I'm Christa.</h1>
         <p>I'm a front-end engineer and user experience advocate. Currently working as a software engineer in the SaaS industry.</p>
-        <p>I have extensive experience with sematic HTML, SCSS, React, and vanilla JavaScript (ES6+). By daylight, I click away at my rainbow backlight mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of psychological thrillers, and a (novice) hobbyist lockpicker 🔓.</p>
+        <p>I have extensive experience with semantic HTML, SCSS, React, and vanilla JavaScript (ES6+). By daylight, I click away at my rainbow backlit mechanical keyboard. In my spare time, I am a reader of sci-fi and mystery books, an enjoyer of psychological thrillers, and a (novice) hobbyist lockpicker 🔓</p>
       </section>
 
       <Technologies />
