@@ -1,15 +1,30 @@
 module.exports = {
   siteMetadata: {
     title: `Christa Burch`,
-    description: `Software engineer focused on frontend web development and user experience. Web portfolio.`,
+    description: `Software engineer focused on crafting full-stack web applications, performant user interfaces, and responsive web design.`,
     author: `@cweave`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    siteUrl: `https://christa-burch.com`,
+    social: {
+      twitter: `@cweave_`,
+    },
+    imageUrl: `src/images/christa-burch-alt.webp`,
   },
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,8 +41,6 @@ module.exports = {
         short_name: `Christa Burch`,
         start_url: `/`,
         background_color: `hsl(290, 34%, 10%)`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
         theme_color: `hsl(290, 34%, 10%)`,
         display: `standalone`,
         icon: `src/assets/burch.svg`, // This path is relative to the root of the site.
@@ -37,7 +50,7 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/, // See below to configure properly
+          include: /assets/,
         },
       },
     },

@@ -1,5 +1,6 @@
 import React from "react"
 import "../styles/components/footer.scss"
+import Books from "../assets/books.svg"
 import Codepen from "../assets/codepen.svg"
 import Email from "../assets/email.svg"
 import Github from "../assets/github.svg"
@@ -24,6 +25,11 @@ const Footer = () => {
         <li>
           <a href="https://www.linkedin.com/in/weaverchrista/" rel="noreferrer noopener" target="_blank" title="Connect with Christa on LinkedIn">
             <Linkedin title="LinkedIn logo - Connect with Christa on LinkedIn" />
+          </a>
+        </li>
+        <li>
+          <a href="https://app.thestorygraph.com/profile/cweave" rel="noreferrer noopener" target="_blank" title="Follow Christa on The StoryGraph">
+            <Books title="Stack of books - Follow Christa on The StoryGraph" />
           </a>
         </li>
         <li>

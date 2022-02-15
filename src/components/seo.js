@@ -10,23 +10,44 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+const Seo = ({ description, lang, meta, title, imageAlt }) => {
+  const constructUrl = (baseUrl, path) => (!baseUrl || !path ? null : `${baseUrl}${path}`)
+
+  const data = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
             description
-            author
+            social {
+              twitter
+            }
+            siteUrl
+            imageUrl
+          }
+        }
+        ogImageDefault: file(relativePath: { eq: "christa-burch-alt.webp" }) {
+          childImageSharp {
+            fixed(height: 175, width: 175) {
+              src
+            }
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const { siteMetadata } = data.site
+
+  const metaDescription = description || siteMetadata.description
+  const defaultTitle = siteMetadata?.title
+  // const url = new URL(siteUrl)
+  // const image = siteMetadata.imageUrl ? new URL(siteMetadata.imageUrl, siteUrl) : false
+  // console.log(siteMetadata.imageUrl, image)
+
+  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)
+  console.log(defaultImageUrl)
 
   return (
     <Helmet
@@ -58,7 +79,23 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          content: siteMetadata?.author || ``,
+        },
+        {
+          property: "og:image",
+          content: defaultImageUrl,
+        },
+        {
+          property: `twitter:card`,
+          content: defaultImageUrl ? `summary_large_image` : `summary`,
+        },
+        {
+          property: `twitter:creator`,
+          content: siteMetadata.social.twitter,
+        },
+        {
+          property: "twitter:image:alt",
+          content: imageAlt || "christa-burch.com logo",
         },
         {
           name: `twitter:title`,
