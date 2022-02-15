@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://christa-burch.com">
-    <img alt="Gatsby" src="https://raw.githubusercontent.com/cweave/gatsyby-portfolio/main/src/assets/burch.svg?token=GHSAT0AAAAAABQTGS3A6GMPRATGE4W42IPSYQDENTQ" width="75" />
+    <img alt="Christa Burch" src="https://raw.githubusercontent.com/cweave/gatsyby-portfolio/101505abb20f23feee04929910f50a88fb71c3a5/assets/christa-burch.png?token=GHSAT0AAAAAABQTGS3BA3Y6KO654BAL2KCMYQEPGAA" width="75" />
   </a>
 </p>
 <h1 align="center">
