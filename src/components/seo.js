@@ -23,7 +23,7 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
             social {
               twitter
             }
-            siteUr
+            siteUrl
           }
         }
         ogTwitterImage: file(relativePath: { eq: "christa-burch-alt.webp" }) {
