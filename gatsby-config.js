@@ -7,7 +7,6 @@ module.exports = {
     social: {
       twitter: `@cweave_`,
     },
-    imageUrl: `src/images/christa-burch-alt.webp`,
   },
   plugins: [
     `gatsby-plugin-sass`,

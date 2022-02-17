@@ -23,13 +23,19 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
             social {
               twitter
             }
-            siteUrl
-            imageUrl
+            siteUr
           }
         }
-        ogImageDefault: file(relativePath: { eq: "christa-burch-alt.webp" }) {
+        ogTwitterImage: file(relativePath: { eq: "christa-burch-alt.webp" }) {
           childImageSharp {
             fixed(height: 175, width: 175) {
+              src
+            }
+          }
+        }
+        ogImage: file(relativePath: { eq: "christa-burch-alt.webp" }) {
+          childImageSharp {
+            fixed(height: 300, width: 200) {
               src
             }
           }
@@ -42,12 +48,9 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
 
   const metaDescription = description || siteMetadata.description
   const defaultTitle = siteMetadata?.title
-  // const url = new URL(siteUrl)
-  // const image = siteMetadata.imageUrl ? new URL(siteMetadata.imageUrl, siteUrl) : false
-  // console.log(siteMetadata.imageUrl, image)
 
-  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogImageDefault?.childImageSharp?.fixed?.src)
-  console.log(defaultImageUrl)
+  const defaultTwitterImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogTwitterImage?.childImageSharp?.fixed?.src)
+  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogTwitterImage?.childImageSharp?.fixed?.src)
 
   return (
     <Helmet
@@ -86,8 +89,12 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
           content: defaultImageUrl,
         },
         {
+          property: "twitter:image",
+          content: defaultTwitterImageUrl,
+        },
+        {
           property: `twitter:card`,
-          content: defaultImageUrl ? `summary_large_image` : `summary`,
+          content: defaultTwitterImageUrl ? `summary_large_image` : `summary`,
         },
         {
           property: `twitter:creator`,
