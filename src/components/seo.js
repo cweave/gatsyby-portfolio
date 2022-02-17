@@ -33,7 +33,7 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
             }
           }
         }
-        ogImage: file(relativePath: { eq: "christa-burch-alt.webp" }) {
+        ogImage: file(relativePath: { eq: "cb.png" }) {
           childImageSharp {
             fixed(height: 300, width: 200) {
               src
@@ -50,7 +50,7 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
   const defaultTitle = siteMetadata?.title
 
   const defaultTwitterImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogTwitterImage?.childImageSharp?.fixed?.src)
-  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogTwitterImage?.childImageSharp?.fixed?.src)
+  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogImage?.childImageSharp?.fixed?.src)
 
   return (
     <Helmet
