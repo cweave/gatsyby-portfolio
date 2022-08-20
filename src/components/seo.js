@@ -26,14 +26,14 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
             siteUrl
           }
         }
-        ogTwitterImage: file(relativePath: { eq: "christa-burch-alt.webp" }) {
+        ogTwitterImage: file(relativePath: { eq: "og-image.png" }) {
           childImageSharp {
             fixed(height: 175, width: 175) {
               src
             }
           }
         }
-        ogImage: file(relativePath: { eq: "cb.png" }) {
+        ogImage: file(relativePath: { eq: "og-image.png" }) {
           childImageSharp {
             fixed(height: 300, width: 200) {
               src
