@@ -26,18 +26,13 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
             siteUrl
           }
         }
-        ogTwitterImage: file(relativePath: { eq: "og-image.png" }) {
-          childImageSharp {
-            fixed(height: 175, width: 175) {
-              src
-            }
-          }
-        }
         ogImage: file(relativePath: { eq: "og-image.png" }) {
           childImageSharp {
-            fixed(height: 300, width: 200) {
-              src
-            }
+            gatsbyImageData(
+				quality: 90
+				width: 1080
+				layout: CONSTRAINED
+			)
           }
         }
       }
@@ -49,8 +44,7 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
   const metaDescription = description || siteMetadata.description
   const defaultTitle = siteMetadata?.title
 
-  const defaultTwitterImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogTwitterImage?.childImageSharp?.fixed?.src)
-  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogImage?.childImageSharp?.fixed?.src)
+  const defaultImageUrl = constructUrl(data.site.siteMetadata.siteUrl, data.ogImage?.childImageSharp?.gatsbyImageData.images.fallback.src)
 
   return (
     <Helmet
@@ -87,14 +81,6 @@ const Seo = ({ description, lang, meta, title, imageAlt }) => {
         {
           property: "og:image",
           content: defaultImageUrl,
-        },
-        {
-          property: "twitter:image",
-          content: defaultTwitterImageUrl,
-        },
-        {
-          property: `twitter:card`,
-          content: defaultTwitterImageUrl ? `summary_large_image` : `summary`,
         },
         {
           property: `twitter:creator`,
